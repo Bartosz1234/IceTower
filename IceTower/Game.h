@@ -1,18 +1,18 @@
 #pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
-
+#include "Menu_main.h"
 
 class Game
 {
 public:
+	Menu_main Glowne;
 	std::string Nazwa_gry = "Ice Tower";
 	std::string Producent = "Ekskluzywny producent Kaszubek";
-
+	sf::RenderWindow window;
 	void Start() {
-		sf::RenderWindow window(sf::VideoMode(200, 200), Producent);
 		while (window.isOpen())
-		{
+		{	
 			sf::Event event;
 			while (window.pollEvent(event))
 			{
@@ -21,21 +21,22 @@ public:
 				
 				
 			}
-			window.clear();
-			window.display();
+			Update();
+			Draw();
 		}
 	}
-	Game();
-	~Game();
+
+	void Update() {
+
+	}
+
+	void Draw() {
+		window.clear();
+		Glowne.Draw(window);
+		window.display();
+	}
+	Game():
+		window(sf::VideoMode(200, 200), Producent)
+	{};
+	~Game() {};
 };
-
-
-
-Game::Game()
-{
-}
-
-
-Game::~Game()
-{
-}
