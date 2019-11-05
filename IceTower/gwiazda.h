@@ -23,7 +23,7 @@ public:
 		position.y = y_in;
 		rozmiar_okna.x = szerokosc;
 		rozmiar_okna.y = wysokosc;
-		tekstura.loadFromFile("gwiazda.png");
+		tekstura.loadFromFile("pokeball.png");
 		pSprite.setTexture(tekstura);
 		pSprite.setPosition(position);
 	}

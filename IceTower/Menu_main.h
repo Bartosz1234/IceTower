@@ -2,6 +2,24 @@
 #include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
+
+void myDelay(int opoznienie)
+{
+	sf::Clock zegar;
+	sf::Time czas;
+	while (1)
+	{
+		czas = zegar.getElapsedTime();
+		if (czas.asMilliseconds() > opoznienie)
+		{
+			zegar.restart();
+			break;
+		}
+
+	}
+}
+
+
 class Menu_main
 {
 public:

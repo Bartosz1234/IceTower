@@ -4,9 +4,11 @@
 #include "Menu_main.h"
 #include "gwiazda.h"
 
+
 class Game
 {
 public:
+	gwiazda smierci;
 	Menu_main Glowne;
 	std::string Nazwa_gry = "Ice Tower";
 	std::string Producent = "Ekskluzywny producent Kaszubek";
@@ -19,8 +21,6 @@ public:
 			{
 				if (event.type == sf::Event::Closed)
 					window.close();
-				
-				
 			}
 			Update();
 			Draw();
@@ -28,16 +28,23 @@ public:
 	}
 
 	void Update() {
-
+		smierci.animuj();
 	}
 
 	void Draw() {
 		window.clear();
 		Glowne.Draw(window);
+		
+		//sf::Sprite nowa = smierci.getPokeball();
+		//window.draw(nowa);
+		
+		window.draw(smierci.getPokeball());
 		window.display();
 	}
+	
 	Game():
-		window(sf::VideoMode(500, 800), Producent)
+		window(sf::VideoMode(640, 500), Producent),
+		smierci(320,250,640, 500)
 	{};
 	~Game() {};
 };
