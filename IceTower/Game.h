@@ -2,13 +2,14 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Menu_main.h"
-#include "gwiazda.h"
+#include "Menu.h"
 
 
 class Game
 {
 public:
-	gwiazda smierci;
+	Menu menu;
+	// gwiazda smierci;
 	Menu_main Glowne;
 	std::string Nazwa_gry = "Ice Tower";
 	std::string Producent = "Ekskluzywny producent Kaszubek";
@@ -28,23 +29,24 @@ public:
 	}
 
 	void Update() {
-		smierci.animuj();
+		// smierci.animuj();
 	}
 
 	void Draw() {
 		window.clear();
 		Glowne.Draw(window);
-		
+		menu.draw(window);
 		//sf::Sprite nowa = smierci.getPokeball();
 		//window.draw(nowa);
 		
-		window.draw(smierci.getPokeball());
+		// window.draw(smierci.getPokeball());
 		window.display();
 	}
 	
 	Game():
-		window(sf::VideoMode(640, 500), Producent),
-		smierci(320,250,640, 500)
+		window(sf::VideoMode(640, 500), Producent) ,
+		// smierci(320,250,640, 500)
+		menu(640,500)
 	{};
 	~Game() {};
 };
