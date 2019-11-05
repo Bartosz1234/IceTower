@@ -2,6 +2,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Menu_main.h"
+#include "gwiazda.h"
 
 class Game
 {
@@ -36,7 +37,7 @@ public:
 		window.display();
 	}
 	Game():
-		window(sf::VideoMode(200, 200), Producent)
+		window(sf::VideoMode(500, 800), Producent)
 	{};
 	~Game() {};
 };

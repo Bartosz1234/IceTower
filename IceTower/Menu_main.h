@@ -13,7 +13,7 @@ public:
 		text.setFont(font); // font is a sf::Font
 
 		// set the string to display
-		text.setString("Nowa gra");
+		text.setString("Nowa gra111");
 
 		// set the character size
 		text.setCharacterSize(24); // in pixels, not points!
