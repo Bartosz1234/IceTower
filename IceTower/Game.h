@@ -10,7 +10,7 @@ class Game
 public:
 	Menu menu;
 	// gwiazda smierci;
-	Menu_main Glowne;
+	//Menu_main Glowne;
 	std::string Nazwa_gry = "Ice Tower";
 	std::string Producent = "Ekskluzywny producent Kaszubek";
 	sf::RenderWindow window;
@@ -22,6 +22,15 @@ public:
 			{
 				if (event.type == sf::Event::Closed)
 					window.close();
+				if (event.type == sf::Event::KeyPressed) {
+					if (event.key.code == sf::Keyboard::Key::W)
+						menu.moveUp();
+					if (event.key.code == sf::Keyboard::Key::S)
+						menu.moveDown();
+
+
+
+				}
 			}
 			Update();
 			Draw();
@@ -34,7 +43,7 @@ public:
 
 	void Draw() {
 		window.clear();
-		Glowne.Draw(window);
+		//Glowne.Draw(window);
 		menu.draw(window);
 		//sf::Sprite nowa = smierci.getPokeball();
 		//window.draw(nowa);
@@ -44,9 +53,9 @@ public:
 	}
 	
 	Game():
-		window(sf::VideoMode(640, 500), Producent) ,
+		window(sf::VideoMode(1420, 800), Producent, sf::Style::Titlebar | sf::Style::Close) ,
 		// smierci(320,250,640, 500)
-		menu(640,500)
+		menu(1420,800)
 	{};
 	~Game() {};
 };

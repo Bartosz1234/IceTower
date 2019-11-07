@@ -7,32 +7,30 @@ Menu::Menu(float width, float height)
 		return;
 	}
 
-/*	for (int i = 0; i < MAX_LICZBA_POZIOMOW ; i++)
-	{
-		menu[i]
-	}
-*/
+
+
 	//rysowanie elementow menu
-	menu[0].setFont(font);
-	menu[0].setFillColor(sf::Color::Cyan);
-	menu[0].setString("Nowa gra");
-	menu[0].setPosition(sf::Vector2f(width / 8, height / (MAX_LICZBA_POZIOMOW + 1) * 1));
 	
-	menu[1].setFont(font);
-	menu[1].setFillColor(sf::Color::White);
-	menu[1].setString("Ostatnie wyniki");
-	menu[1].setPosition(sf::Vector2f(width / 8, height / (MAX_LICZBA_POZIOMOW + 1) * 2));
+	for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
+	{
 	
-	menu[2].setFont(font);
-	menu[2].setFillColor(sf::Color::White);
-	menu[2].setString("Wyjscie");
-	menu[2].setPosition(sf::Vector2f(width / 8, height / (MAX_LICZBA_POZIOMOW + 1) * 3));
+	menu[i].setFont(font);
+	menu[i].setFillColor(sf::Color::White);
+	menu[i].setPosition(sf::Vector2f(width / 3, height / (ILOSC_POZYCJI_MENU + 1) * (i+1)));
+	
+	}
+	int q = 0;
+	menu[q++].setString("Nowa gra");
+	menu[q++].setString("Wyniki");
+	menu[q++].setString("Opcje");
+	menu[q++].setString("Wyjscie");
+	menu[0].setFillColor(sf::Color::Magenta);
 }
 
 //rysowanie menu w biezacym oknie
 void Menu::draw(sf::RenderWindow &window)
 {
-	for (int i = 0; i < MAX_LICZBA_POZIOMOW; i++)
+	for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
 	{
 		window.draw(menu[i]);
 	}
@@ -41,14 +39,14 @@ void Menu::draw(sf::RenderWindow &window)
 
 void Menu::moveUp()
 {
-	if (selectedItem >= 0 && selectedItem < MAX_LICZBA_POZIOMOW)
+	if (selectedItem >= 0 && selectedItem < ILOSC_POZYCJI_MENU)
 	{
 		menu[selectedItem].setFillColor(sf::Color::White);
 		menu[selectedItem].setStyle(sf::Text::Regular);
 		selectedItem--;
 		if (selectedItem < 0)
-			selectedItem = MAX_LICZBA_POZIOMOW - 1;
-		menu[selectedItem].setFillColor(sf::Color::Cyan);
+			selectedItem = ILOSC_POZYCJI_MENU - 1;
+		menu[selectedItem].setFillColor(sf::Color::Magenta);
 		menu[selectedItem].setStyle(sf::Text::Bold);
 	}
 
@@ -57,14 +55,14 @@ void Menu::moveUp()
 
 void Menu::moveDown()
 {
-	if (selectedItem >= 0 && selectedItem < MAX_LICZBA_POZIOMOW)
+	if (selectedItem >= 0 && selectedItem < ILOSC_POZYCJI_MENU)
 	{
 		menu[selectedItem].setFillColor(sf::Color::White);
 		menu[selectedItem].setStyle(sf::Text::Regular);
 		selectedItem++;
-		if (selectedItem >= MAX_LICZBA_POZIOMOW)
+		if (selectedItem >= ILOSC_POZYCJI_MENU)
 			selectedItem = 0;
-		menu[selectedItem].setFillColor(sf::Color::Cyan);
+		menu[selectedItem].setFillColor(sf::Color::Magenta);
 		menu[selectedItem].setStyle(sf::Text::Bold);
 	}
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-#define MAX_LICZBA_POZIOMOW 4
+#define ILOSC_POZYCJI_MENU 4
 
 
 class Menu
@@ -9,7 +9,7 @@ class Menu
 
 private:
 	sf::Font font;
-	sf::Text menu[MAX_LICZBA_POZIOMOW];//maksymalna liczba poziomow
+	sf::Text menu[ILOSC_POZYCJI_MENU];//maksymalna liczba poziomow
 	int selectedItem = 0;
 
 
