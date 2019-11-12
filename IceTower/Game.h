@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Menu_main.h"
 #include "Menu.h"
-
+#include "nowa_gra.h"
 
 class Game
 {

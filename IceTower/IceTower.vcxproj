@@ -128,12 +128,14 @@
     <ClCompile Include="gwiazda.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="nowa_gra.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="gwiazda.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Menu_main.h" />
+    <ClInclude Include="nowa_gra.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
