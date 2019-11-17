@@ -1,22 +1,41 @@
 #pragma once
+#include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "StateMachine.h"
+#include "AssetManager.h"
+#include "InputManager.h"
 #include "Menu_main.h"
 #include "Menu.h"
-#include "nowa_gra.h"
+#include "Definitions.h"
+
+// #include "nowa_gra.h"
+
+struct GameData
+{
+	StateMachine machine;
+
+	AssetManager assets;
+	InputManager input;
+};
+
+typedef std::shared_ptr<GameData> GameDataRef;
 
 class Game
 {
 public:
 	Menu menu;
+	// nowa_gra nowa_gra;
 	// gwiazda smierci;
 	//Menu_main Glowne;
 	std::string Nazwa_gry = "Ice Tower";
 	std::string Producent = "Ekskluzywny producent Kaszubek";
+	
 	sf::RenderWindow window;
 	void Start() {
 		while (window.isOpen())
 		{	
+			
 			sf::Event event;
 			while (window.pollEvent(event))
 			{
@@ -27,10 +46,14 @@ public:
 						menu.moveUp();
 					if (event.key.code == sf::Keyboard::Key::S)
 						menu.moveDown();
-
-
+					// if (event.key.code == sf::Keyboard::Key::Enter)
+						// menu.~Menu;
+						// nowa_gra.draw(window);
+						// Tutaj menu destruktor
+						// Tutaj nowa_gra konstrukto/rysowanie
 
 				}
+
 			}
 			Update();
 			Draw();
@@ -44,6 +67,7 @@ public:
 	void Draw() {
 		window.clear();
 		//Glowne.Draw(window);
+		
 		menu.draw(window);
 		//sf::Sprite nowa = smierci.getPokeball();
 		//window.draw(nowa);

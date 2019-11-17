@@ -6,8 +6,8 @@ Menu::Menu(float width, float height)
 	{
 		return;
 	}
-
-
+	
+	
 
 	//rysowanie elementow menu
 	
@@ -16,7 +16,7 @@ Menu::Menu(float width, float height)
 	
 	menu[i].setFont(font);
 	menu[i].setFillColor(sf::Color::White);
-	menu[i].setPosition(sf::Vector2f(width / 3, height / (ILOSC_POZYCJI_MENU + 1) * (i+1)));
+	menu[i].setPosition(sf::Vector2f(width / 2, height / (ILOSC_POZYCJI_MENU + 1) * (i+1)));
 	
 	}
 	int q = 0;
@@ -27,9 +27,19 @@ Menu::Menu(float width, float height)
 	menu[0].setFillColor(sf::Color::Magenta);
 }
 
+
+
 //rysowanie menu w biezacym oknie
 void Menu::draw(sf::RenderWindow &window)
 {
+	sf::Texture texture;
+	if (!texture.loadFromFile("Ice Tower grafika.jpg", sf::IntRect(0, 0, 1420, 800)))
+	{
+		// error...
+	}
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+	window.draw(sprite);
 	for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
 	{
 		window.draw(menu[i]);

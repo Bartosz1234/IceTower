@@ -20,7 +20,6 @@ nowa_gra::nowa_gra(float width, float height)
 	int q = 0;
 	menu[q++].setString("Stwórz gre");
 	menu[q++].setString("Zmien postaæ");
-	menu[q++].setString("Poziom trudnoœci");
 	menu[q++].setString("Powrót");
 	menu[0].setFillColor(sf::Color::Magenta);
 

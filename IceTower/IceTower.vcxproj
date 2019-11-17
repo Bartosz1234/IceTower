@@ -125,17 +125,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="gwiazda.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="nowa_gra.cpp" />
+    <ClCompile Include="SplashState.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Definitions.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="gwiazda.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Menu_main.h" />
     <ClInclude Include="nowa_gra.h" />
+    <ClInclude Include="SplashState.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
