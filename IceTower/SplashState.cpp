@@ -1,33 +1,52 @@
-#pragma once
-#include "SplashState.h"
 #include <sstream>
 #include "SplashState.h"
-#include "Definitions.h"
+#include "MainMenuState.h"
+#include "DEFINITIONS.h"
 
 #include <iostream>
 
-
-
-SplashState::SplashState(GameDataRef data)
+namespace Sonar
 {
-}
-
-
-SplashState::~SplashState()
-{
-}
-
-void SplashState::Init() {
-	sf::Texture texture;
-	if (!texture.loadFromFile("splash state.jpg", sf::IntRect(10, 10, 32, 32)))
+	SplashState::SplashState(GameDataRef data) : _data(data)
 	{
-		// error...
+
 	}
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
+
+	void SplashState::Init()
+	{
+		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
+
+		_background.setTexture(this->_data->assets.GetTexture("Splash State Background"));
+	}
+
+	void SplashState::HandleInput()
+	{
+		sf::Event event;
+
+		while (this->_data->window.pollEvent(event))
+		{
+			if (sf::Event::Closed == event.type)
+			{
+				this->_data->window.close();
+			}
+		}
+	}
+
+	void SplashState::Update(float dt)
+	{
+		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
+		{
+			// Przejscie do Main'a
+			this->_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
+		}
+	}
+
+	void SplashState::Draw(float dt)
+	{
+		this->_data->window.clear(sf::Color::Red);
+
+		this->_data->window.draw(this->_background);
+
+		this->_data->window.display();
+	}
 }
-void SplashState::HandleInput() {
-	sf::Event event;
-	while (_data->window.pollEvent (event))
-}
-	// window.draw(sprite);

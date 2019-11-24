@@ -2,6 +2,8 @@
 
 #include "SFML\Graphics.hpp"
 
+namespace Sonar
+{
 
 
 	class InputManager
@@ -14,3 +16,4 @@
 
 		sf::Vector2i GetMousePosition(sf::RenderWindow &window);
 	};
+}

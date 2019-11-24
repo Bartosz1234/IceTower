@@ -2,7 +2,8 @@
 
 #include "InputManager.h"
 
-
+namespace Sonar
+{
 	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow &window)
 	{
 		if (sf::Mouse::isButtonPressed(button))
@@ -22,3 +23,4 @@
 	{
 		return sf::Mouse::getPosition(window);
 	}
+}

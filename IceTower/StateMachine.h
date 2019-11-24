@@ -6,6 +6,7 @@
 #include "State.h"
 
 
+namespace Sonar {
 
 	typedef std::unique_ptr<State> StateRef;
 
@@ -17,7 +18,7 @@
 
 		void AddState(StateRef newState, bool isReplacing = true);
 		void RemoveState();
-		// Run at start of each loop in Game.cpp
+		// W³¹czaj na pocz¹tku ka¿dej pêtli w Game.cpp
 		void ProcessStateChanges();
 
 		StateRef &GetActiveState();
@@ -29,3 +30,4 @@
 		bool _isRemoving;
 		bool _isAdding, _isReplacing;
 	};
+}

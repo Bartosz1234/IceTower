@@ -1,12 +1,11 @@
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 #include <iostream>
 #include "Game.h"
-#include "Definitions.h"
-
+#include "DEFINITIONS.h"
 
 int main()
 {
-	Game gra;
-	gra.Start();
-	return 0;
+	Sonar::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Flappy Bird");
+
+	return EXIT_SUCCESS;
 }

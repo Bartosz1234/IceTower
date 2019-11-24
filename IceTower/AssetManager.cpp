@@ -2,7 +2,8 @@
 #include "AssetManager.h"
 
 
-
+namespace Sonar
+{
 	void AssetManager::LoadTexture(std::string name, std::string fileName)
 	{
 		sf::Texture tex;
@@ -32,3 +33,4 @@
 	{
 		return this->_fonts.at(name);
 	}
+}
