@@ -2,7 +2,7 @@
 #include "MainMenuState.h"
 #include "DEFINITIONS.h"
 #include "MainMenuState.h"
-
+#include "Gamestate.h"
 #include <iostream>
 
 namespace Sonar
@@ -37,7 +37,8 @@ namespace Sonar
 			}
 			if (_data->input.IsSpriteClicked(_background, sf::Mouse::Left, _data->window))
 			{
-				std::cout << " Idziemy do Game Screen'u"<<std::endl;
+				this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+			
 			}
 		}
 	}
