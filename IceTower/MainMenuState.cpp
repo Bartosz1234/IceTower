@@ -4,12 +4,26 @@
 #include "MainMenuState.h"
 #include "Gamestate.h"
 #include <iostream>
+#include "DEFINITIONS.h"
 
 namespace Sonar
 {
 	MainMenuState::MainMenuState(GameDataRef data) : _data(data)
 	{
+		for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
+		{
 
+			menu[i].setFont(font);
+			menu[i].setFillColor(sf::Color::White);
+			menu[i].setPosition(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / (ILOSC_POZYCJI_MENU + 1) * (i + 1)));
+
+		}
+		int q = 0;
+		menu[q++].setString("Nowa gra");
+		menu[q++].setString("Wyniki");
+		menu[q++].setString("Opcje");
+		menu[q++].setString("Wyjscie");
+		menu[0].setFillColor(sf::Color::Magenta);
 	}
 
 	void MainMenuState::Init()
@@ -54,7 +68,44 @@ namespace Sonar
 
 		this->_data->window.draw(this->_background);
 		//this->_data->window.draw(this->_playButton);
-
+		
+		for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
+		{
+			this->_data->window.draw(this->menu[i]);
+		}
 		this->_data->window.display();
+
 	}
+
+	void MainMenuState::moveUp()
+	{
+		if (selectedItem >= 0 && selectedItem < ILOSC_POZYCJI_MENU)
+		{
+			menu[selectedItem].setFillColor(sf::Color::White);
+			menu[selectedItem].setStyle(sf::Text::Regular);
+			selectedItem--;
+			if (selectedItem < 0)
+				selectedItem = ILOSC_POZYCJI_MENU - 1;
+			menu[selectedItem].setFillColor(sf::Color::Magenta);
+			menu[selectedItem].setStyle(sf::Text::Bold);
+		}
+
+
+	}
+
+	void MainMenuState::moveDown()
+	{
+		if (selectedItem >= 0 && selectedItem < ILOSC_POZYCJI_MENU)
+		{
+			menu[selectedItem].setFillColor(sf::Color::White);
+			menu[selectedItem].setStyle(sf::Text::Regular);
+			selectedItem++;
+			if (selectedItem >= ILOSC_POZYCJI_MENU)
+				selectedItem = 0;
+			menu[selectedItem].setFillColor(sf::Color::Magenta);
+			menu[selectedItem].setStyle(sf::Text::Bold);
+		}
+
+	}
+
 }
