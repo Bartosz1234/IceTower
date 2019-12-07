@@ -14,10 +14,12 @@ namespace Sonar
 		void HandleInput();
 		void Update(float dt);
 		void Draw(float dt);
+		void moveUp();
+		void moveDown();
 
 	private:
 		GameDataRef _data;
-
+		
 		sf::Sprite _background;
 	};
 }

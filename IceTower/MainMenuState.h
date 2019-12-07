@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "DEFINITIONS.h"
 
-#define ILOSC_POZYCJI_MENU 4
+
 
 namespace Sonar
 {

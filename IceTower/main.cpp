@@ -5,7 +5,7 @@
 
 int main()
 {
-	Sonar::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Flappy Bird");
+	Sonar::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Kaszubek Tower");
 
 	return EXIT_SUCCESS;
 }

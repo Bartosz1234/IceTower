@@ -8,4 +8,5 @@
 
 #define MAIN_MENU_BACKGROUND_FILEPATH "Ice Tower grafika.jpg"
 #define PLAY_BUTTON_FILEPATH "PlayButton.png"
-#define GAME_BACKGROUND_FILEPATH "game_background.jpg"
+#define GAME_BACKGROUND_FILEPATH "game_background.png"
+#define ILOSC_POZYCJI_MENU 4
