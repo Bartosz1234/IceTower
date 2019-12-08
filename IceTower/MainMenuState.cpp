@@ -10,6 +10,10 @@ namespace Sonar
 {
 	MainMenuState::MainMenuState(GameDataRef data) : _data(data)
 	{
+	}
+
+	void MainMenuState::Init()
+	{
 		if (!font.loadFromFile("arial.ttf"))
 		{
 			return;
@@ -19,8 +23,8 @@ namespace Sonar
 		{
 
 			menu[i].setFont(font);
-			menu[i].setFillColor(sf::Color::White);
-			menu[i].setPosition(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / (ILOSC_POZYCJI_MENU + 1) * (i + 1)));
+			menu[i].setFillColor(sf::Color::Black);
+			menu[i].setPosition(sf::Vector2f((SCREEN_WIDTH / 2 ) + 300, (SCREEN_HEIGHT / (ILOSC_POZYCJI_MENU + 3) * (i + 1)) + 230));
 
 		}
 		int q = 0;
@@ -29,16 +33,14 @@ namespace Sonar
 		menu[q++].setString("Opcje");
 		menu[q++].setString("Wyjscie");
 		menu[0].setFillColor(sf::Color::Magenta);
-	}
 
-	void MainMenuState::Init()
-	{
+		
 		this->_data->assets.LoadTexture("Main Menu Background", MAIN_MENU_BACKGROUND_FILEPATH);
-		//this->_data->assets.LoadTexture("Play Button", PLAY_BUTTON_FILEPATH);
+		
 
 		_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
-		/*_background.setTexture(this->_data->assets.GetTexture("Play Button"));
-
+		
+		/*
 		_playButton.setPosition( (SCREEN_WIDTH / 2) - ( _playButton.
 			getGlobalBounds( ).width / 2), (SCREEN_HEIGHT / 2) - (_playButton.
 				getGlobalBounds().height / 2));*/
@@ -54,17 +56,22 @@ namespace Sonar
 			{
 				this->_data->window.close();
 			}
-			if (_data->input.IsSpriteClicked(_background, sf::Mouse::Left, _data->window))
-			{
-				this->_data->machine.AddState(StateRef(new GameState(_data)), true);
-
-			}
+			
 			if (event.type == sf::Event::KeyPressed) {
 				if (event.key.code == sf::Keyboard::Key::W)
 					moveUp();
 				if (event.key.code == sf::Keyboard::Key::S)
 					moveDown();
-
+				if (event.key.code == sf::Keyboard::Key::Enter
+					&& getSelectedItem() == 0)
+				{
+					this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+				}
+				if (event.key.code == sf::Keyboard::Key::Enter
+					&& getSelectedItem() == 3)
+				{
+					this->_data->window.close();
+				}
 			}
 		}
 	}
@@ -79,7 +86,7 @@ namespace Sonar
 		this->_data->window.clear(sf::Color::Red);
 
 		this->_data->window.draw(this->_background);
-		//this->_data->window.draw(this->_playButton);
+		
 
 		for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
 		{
@@ -93,7 +100,7 @@ namespace Sonar
 	{
 		if (selectedItem >= 0 && selectedItem < ILOSC_POZYCJI_MENU)
 		{
-			menu[selectedItem].setFillColor(sf::Color::White);
+			menu[selectedItem].setFillColor(sf::Color::Black);
 			menu[selectedItem].setStyle(sf::Text::Regular);
 			selectedItem--;
 			if (selectedItem < 0)
@@ -109,7 +116,7 @@ namespace Sonar
 	{
 		if (selectedItem >= 0 && selectedItem < ILOSC_POZYCJI_MENU)
 		{
-			menu[selectedItem].setFillColor(sf::Color::White);
+			menu[selectedItem].setFillColor(sf::Color::Black);
 			menu[selectedItem].setStyle(sf::Text::Regular);
 			selectedItem++;
 			if (selectedItem >= ILOSC_POZYCJI_MENU)
