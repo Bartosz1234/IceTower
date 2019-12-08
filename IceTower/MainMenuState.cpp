@@ -54,24 +54,24 @@ namespace Sonar
 			{
 				this->_data->window.close();
 			}
-			/*if (event.type == sf::Event::KeyPressed) {*/
-				/*if (event.key.code == sf::Keyboard::Key::W)
-					menu.moveUp();
+			if (_data->input.IsSpriteClicked(_background, sf::Mouse::Left, _data->window))
+			{
+				this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+
+			}
+			if (event.type == sf::Event::KeyPressed) {
+				if (event.key.code == sf::Keyboard::Key::W)
+					moveUp();
 				if (event.key.code == sf::Keyboard::Key::S)
-					menu.moveDown();*/
-				if (_data->input.IsSpriteClicked(_background, sf::Mouse::Left, _data->window))
-				{
-					this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+					moveDown();
 
-				}
-
-			/*}*/
+			}
 		}
 	}
 
 	void MainMenuState::Update(float dt)
 	{
-		
+
 	}
 
 	void MainMenuState::Draw(float dt)
@@ -80,7 +80,7 @@ namespace Sonar
 
 		this->_data->window.draw(this->_background);
 		//this->_data->window.draw(this->_playButton);
-		
+
 		for (int i = 0; i < ILOSC_POZYCJI_MENU; i++)
 		{
 			this->_data->window.draw(this->menu[i]);
