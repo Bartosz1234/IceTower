@@ -1,10 +1,10 @@
 #include <sstream>
 #include "MainMenuState.h"
 #include "DEFINITIONS.h"
+#include "MainMenuState.h"
 #include "Gamestate.h"
 #include <iostream>
 #include "DEFINITIONS.h"
-#include "OptionsState.h"
 
 namespace Sonar
 {
@@ -72,11 +72,6 @@ namespace Sonar
 				{
 					this->_data->window.close();
 				}
-				if (event.key.code == sf::Keyboard::Key::Enter
-					&& getSelectedItem() == 2)
-				{
-					this->_data->machine.AddState(StateRef(new OptionsState(_data)), true);
-				}
 			}
 		}
 	}
@@ -88,7 +83,7 @@ namespace Sonar
 
 	void MainMenuState::Draw(float dt)
 	{
-		this->_data->window.clear(sf::Color::Blue);
+		this->_data->window.clear(sf::Color::Red);
 
 		this->_data->window.draw(this->_background);
 		
