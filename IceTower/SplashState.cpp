@@ -43,7 +43,7 @@ namespace Sonar
 
 	void SplashState::Draw(float dt)
 	{
-		this->_data->window.clear(sf::Color::Red);
+		this->_data->window.clear(sf::Color::Blue);
 
 		this->_data->window.draw(this->_background);
 
