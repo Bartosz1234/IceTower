@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "State.h"
 #include "Game.h"
+#include "Ground.h"
+#include "DEFINITIONS.h"
 
 namespace Sonar
 {
@@ -21,5 +23,7 @@ namespace Sonar
 		GameDataRef _data;
 		
 		sf::Sprite _background;
+
+		Ground *ground;
 	};
 }
