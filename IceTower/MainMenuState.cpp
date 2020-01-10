@@ -5,6 +5,7 @@
 #include "Gamestate.h"
 #include <iostream>
 #include "DEFINITIONS.h"
+#include "OptionsState.h"
 
 namespace Sonar
 {
@@ -66,6 +67,11 @@ namespace Sonar
 					&& getSelectedItem() == 0)
 				{
 					this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+				}
+				if (event.key.code == sf::Keyboard::Key::Enter
+					&& getSelectedItem() == 2)
+				{
+					this->_data->machine.AddState(StateRef(new OptionsState(_data)), true);
 				}
 				if (event.key.code == sf::Keyboard::Key::Enter
 					&& getSelectedItem() == 3)

@@ -39,12 +39,13 @@ namespace Sonar
 			{
 				this->_data->window.close();
 			}
-			if (this->_data->input.IsSpriteClicked(_background, sf::Mouse::Left, this->_data->window))
+			if (event.type == sf::Event::KeyPressed)
 			{
-				ground->SpawnInvisibleGround();
-				ground->SpawnGround1();
-				ground->SpawnGround2();
-				ground->SpawnGround3();
+
+				if (event.key.code == sf::Keyboard::Key::Space)
+				{
+				
+				}
 			}
 		}
 	}
@@ -52,6 +53,16 @@ namespace Sonar
 	void GameState::Update(float dt)
 	{
 		ground->MoveGround(dt);
+
+		if (clock.getElapsedTime().asSeconds() > GROUND_SPAWN_FREQUENCY)
+		{
+			ground->SpawnInvisibleGround();
+			ground->SpawnGround1();
+			ground->SpawnGround2();
+			ground->SpawnGround3();
+
+			clock.restart();
+		}
 	}
 
 	void GameState::Draw(float dt)

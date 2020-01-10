@@ -1,5 +1,6 @@
 #include "Ground.h"
 
+#include <iostream>
 
 namespace Sonar
 {
@@ -33,7 +34,7 @@ namespace Sonar
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_3"));
 
-		sprite.setPosition(_data->window.getSize().x + 200, 700);
+		sprite.setPosition(_data->window.getSize().x + 199, 700);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -61,7 +62,7 @@ namespace Sonar
 
 			GroundSprites.at(i).move(-movement, 0);
 		}
-
+		
 	}
 
 

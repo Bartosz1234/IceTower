@@ -25,5 +25,7 @@ namespace Sonar
 		sf::Sprite _background;
 
 		Ground *ground;
+
+		sf::Clock clock;
 	};
 }
