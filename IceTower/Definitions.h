@@ -14,5 +14,6 @@
 #define GROUND_3_FILEPATH "level_one_3.png"
 #define ILOSC_POZYCJI_MENU 4
 #define GROUND_MOVEMENT_SPEED 200.0f
-#define GROUND_SPAWN_FREQUENCY 3.0f
+#define GROUND_SPAWN_FREQUENCY 1.5f
 #define OPTIONS_BACKGROUND_FILEPATH "Options background.png"
+#define GAME_EDGE_FILEPATH "Edge.png"

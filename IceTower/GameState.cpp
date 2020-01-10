@@ -26,7 +26,11 @@ namespace Sonar
 		this->_data->assets.LoadTexture("level_one_3", GROUND_3_FILEPATH);
 		//_background.setTexture(this->_data->assets.GetTexture("level_one_3"));
 
+		this->_data->assets.LoadTexture("Edge", GAME_EDGE_FILEPATH);
+
 		ground = new Ground(_data);
+		spawner = new Spawner(_data);
+		edge = new Edge1(_data);
 	}
 
 	void GameState::HandleInput()
@@ -53,6 +57,13 @@ namespace Sonar
 	void GameState::Update(float dt)
 	{
 		ground->MoveGround(dt);
+		
+		spawner->Spawner1();
+		spawner->Spawner2();
+		spawner->Spawner3();
+		
+		edge->SpawnEdgeLeft();
+		edge->SpawnEdgeRight();
 
 		if (clock.getElapsedTime().asSeconds() > GROUND_SPAWN_FREQUENCY)
 		{
@@ -71,6 +82,11 @@ namespace Sonar
 
 		this->_data->window.draw(this->_background);
 		ground->DrawGround();
+		
+		spawner->DrawSpawner();
+
+		edge->DrawEdge();
+
 		this->_data->window.display();
 	}
 }

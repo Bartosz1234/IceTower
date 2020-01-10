@@ -9,12 +9,14 @@ namespace Sonar
 
 	}
 
+
+	
+	
 	void Ground::SpawnGround1()
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_1"));
 
-		sprite.setPosition(_data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().
-			height);
+		sprite.setPosition(_data->window.getSize().x / 2, 0);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -24,7 +26,7 @@ namespace Sonar
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_2"));
 
-		sprite.setPosition(_data->window.getSize().x + 100, 700);
+		sprite.setPosition((_data->window.getSize().x / 2) + 100, 0);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -34,7 +36,7 @@ namespace Sonar
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_3"));
 
-		sprite.setPosition(_data->window.getSize().x + 199, 700);
+		sprite.setPosition((_data->window.getSize().x / 2) + 199, 0);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -60,9 +62,9 @@ namespace Sonar
 			sf::Vector2f position = GroundSprites.at(i).getPosition();
 			float movement = GROUND_MOVEMENT_SPEED * dt;
 
-			GroundSprites.at(i).move(-movement, 0);
+			GroundSprites.at(i).move(0, movement);
 		}
-		
+
 	}
 
 

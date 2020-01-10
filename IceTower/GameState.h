@@ -2,6 +2,8 @@
 #include "State.h"
 #include "Game.h"
 #include "Ground.h"
+#include "Spawner.h"
+#include "Edge1.h"
 #include "DEFINITIONS.h"
 
 namespace Sonar
@@ -25,6 +27,10 @@ namespace Sonar
 		sf::Sprite _background;
 
 		Ground *ground;
+
+		Spawner *spawner;
+
+		Edge1 *edge;
 
 		sf::Clock clock;
 	};

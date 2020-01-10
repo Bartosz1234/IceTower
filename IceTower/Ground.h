@@ -12,6 +12,7 @@ namespace Sonar
 	public:
 		Ground(GameDataRef data);
 
+
 		void SpawnGround1();
 		void SpawnGround2();
 		void SpawnGround3();
