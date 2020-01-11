@@ -27,10 +27,16 @@ namespace Sonar
 		//_background.setTexture(this->_data->assets.GetTexture("level_one_3"));
 
 		this->_data->assets.LoadTexture("Edge", GAME_EDGE_FILEPATH);
+		
+		this->_data->assets.LoadTexture("Stoi", MATE_FRAME_FILEPATH);
+		this->_data->assets.LoadTexture("Skok", JUMP_FRAME_FILEPATH);
+		this->_data->assets.LoadTexture("Prawo", RIGHT_FRAME_FILEPATH);
+		this->_data->assets.LoadTexture("Lewo", LEFT_FRAME_FILEPATH);
 
 		ground = new Ground(_data);
 		spawner = new Spawner(_data);
 		edge = new Edge1(_data);
+		mate = new Mate(_data);
 	}
 
 	void GameState::HandleInput()
@@ -48,12 +54,24 @@ namespace Sonar
 
 				if (event.key.code == sf::Keyboard::Key::Space)
 				{
-				
+					mate->Click();
+					mate->Jump();
+				}
+				if (event.key.code == sf::Keyboard::Key::Right)
+				{
+					mate->move(30, 0);
+					mate->Right();
+				}
+				if (event.key.code == sf::Keyboard::Key::Left)
+				{
+					mate->move(-30, 0);
+					mate->Left();
 				}
 			}
 		}
 	}
 
+	
 	void GameState::Update(float dt)
 	{
 		ground->MoveGround(dt);
@@ -79,6 +97,8 @@ namespace Sonar
 
 			clock.restart();
 		}
+	
+		mate->Update(dt);
 	}
 
 	void GameState::Draw(float dt)
@@ -91,6 +111,8 @@ namespace Sonar
 		spawner->DrawSpawner();
 
 		edge->DrawEdge();
+
+		mate->Draw();
 
 		this->_data->window.display();
 	}

@@ -18,3 +18,17 @@
 #define OPTIONS_BACKGROUND_FILEPATH "Options background.png"
 #define GAME_EDGE_FILEPATH "Edge.png"
 
+#define MATE_FRAME_FILEPATH "Stoi.png"
+#define JUMP_FRAME_FILEPATH "Skok.png"
+#define RIGHT_FRAME_FILEPATH "Prawo.png"
+#define LEFT_FRAME_FILEPATH "Lewo.png"
+
+
+#define MATE_STATE_STILL 1
+#define MATE_STATE_FALLING 2
+#define MATE_STATE_JUMPING 3
+
+#define GRAVITY 350.0f
+#define JUMPING_SPEED 450.0f
+
+#define JUMPING_DURATION 0.4f

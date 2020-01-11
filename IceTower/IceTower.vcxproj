@@ -133,6 +133,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Mate.cpp" />
     <ClCompile Include="OptionsState.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="SplashState.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="Mate.h" />
     <ClInclude Include="OptionsState.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="SplashState.h" />

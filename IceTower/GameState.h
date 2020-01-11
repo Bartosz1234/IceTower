@@ -5,6 +5,8 @@
 #include "Spawner.h"
 #include "Edge1.h"
 #include "DEFINITIONS.h"
+#include "Mate.h"
+
 
 namespace Sonar
 {
@@ -31,6 +33,8 @@ namespace Sonar
 		Spawner *spawner;
 
 		Edge1 *edge;
+
+		Mate *mate;
 
 		sf::Clock clock;
 	};
