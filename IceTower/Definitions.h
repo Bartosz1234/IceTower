@@ -17,3 +17,4 @@
 #define GROUND_SPAWN_FREQUENCY 1.5f
 #define OPTIONS_BACKGROUND_FILEPATH "Options background.png"
 #define GAME_EDGE_FILEPATH "Edge.png"
+

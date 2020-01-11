@@ -13,9 +13,12 @@ namespace Sonar
 		Edge1(GameDataRef data);
 
 		void SpawnEdgeLeft();
+		
+		
 		void SpawnEdgeRight();
 		
-
+		
+		
 		void DrawEdge();
 
 	private:

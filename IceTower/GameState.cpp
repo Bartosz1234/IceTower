@@ -58,15 +58,20 @@ namespace Sonar
 	{
 		ground->MoveGround(dt);
 		
+
 		spawner->Spawner1();
 		spawner->Spawner2();
 		spawner->Spawner3();
 		
 		edge->SpawnEdgeLeft();
+		
 		edge->SpawnEdgeRight();
+		
 
 		if (clock.getElapsedTime().asSeconds() > GROUND_SPAWN_FREQUENCY)
 		{
+			ground->RandomiseGroundOffset();
+
 			ground->SpawnInvisibleGround();
 			ground->SpawnGround1();
 			ground->SpawnGround2();

@@ -1,12 +1,12 @@
 #include "Edge1.h"
-
+#include "DEFINITIONS.h"
 #include <iostream>
 
 namespace Sonar
 {
 	Edge1::Edge1(GameDataRef data) : _data(data)
 	{
-
+		
 	}
 
 
@@ -14,21 +14,24 @@ namespace Sonar
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("Edge"));
 
-		sprite.setPosition(0, 200);
+		sprite.setPosition(0, 0);
 
 		EdgeSprites.push_back(sprite);
 	}
+	
+	
 
 	void Edge1::SpawnEdgeRight()
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("Edge"));
 
-		sprite.setPosition(1270, 200);
+		sprite.setPosition(_data->window.getSize().x - sprite.getGlobalBounds().width, 0);
 
 		EdgeSprites.push_back(sprite);
 	}
-
-
+	
+	
+	
 
 	void Edge1::DrawEdge()
 	{
