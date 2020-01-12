@@ -48,3 +48,8 @@ enum GameStates
 
 #define SCORING_GROUND_FILEPATH "InvisibleScoringGround.png"
 #define ICETWOER_FONT "arial.ttf"
+
+#define PLAY_AGAIN_BUTTON "Play Again Button.png"
+#define GAME_OVER_WINDOW "GameOver.png"
+
+#define TIME_BEFORE_YOU_DIE 1.5f

@@ -2,6 +2,7 @@
 #include "GameState.h"
 #include "DEFINITIONS.h"
 #include "Collisions.h"
+#include "GameOverState.h"
 
 #include <iostream>
 
@@ -99,7 +100,7 @@ namespace Sonar
 					if (event.key.code == sf::Keyboard::Key::F1)
 					{
 						_gameState = GameStates::ePause;
-						// this->_data->machine.AddState(StateRef(new OptionsState(_data)), true);
+						this->_data->machine.AddState(StateRef(new OptionsState(_data)), true);
 					}
 					if (event.key.code == sf::Keyboard::Key::F2)
 					{
@@ -172,6 +173,8 @@ namespace Sonar
 				if (collisions.CheckSpriteCollision(mate->GetSprite(), endingSprites.at(i)))
 				{
 					_gameState = GameStates::eGameOver;
+
+					clock.restart();
 				}
 			}
 
@@ -197,6 +200,11 @@ namespace Sonar
 		if (GameStates::eGameOver == _gameState)
 		{
 			flash->Show(dt);
+			
+			if (clock.getElapsedTime().asSeconds() > TIME_BEFORE_YOU_DIE)
+			{
+				_data->machine.AddState(StateRef(new GameOverState( _data, _score) ), true);
+			}
 		}
 	}
 
@@ -214,12 +222,12 @@ namespace Sonar
 
 		mate->Draw();
 
-		if (_gameState == GameStates::ePause)
-		{
-			// this->_data->window.draw(this->_backgroundOptions);
-			//optionsstate->Draw(dt);
-			optionsF1->Draw(dt);
-		}
+		//if (_gameState == GameStates::ePause)
+		//{
+		//	// this->_data->window.draw(this->_backgroundOptions);
+		//	//optionsstate->Draw(dt);
+		//	optionsF1->Draw(dt);
+		//}
 
 		flash->Draw();
 

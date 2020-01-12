@@ -131,6 +131,7 @@
     <ClCompile Include="Ending.cpp" />
     <ClCompile Include="Flash.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Ending.h" />
     <ClInclude Include="Flash.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOverState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="InputManager.h" />
