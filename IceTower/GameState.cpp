@@ -30,15 +30,20 @@ namespace Sonar
 
 		this->_data->assets.LoadTexture("Koniec", END_FILEPATH);
 
+		// this->_data->assets.LoadTexture("Scoring Ground", SCORING_GROUND_FILEPATH);
+
 		this->_data->assets.LoadTexture("Stoi", MATE_FRAME_FILEPATH);
 		this->_data->assets.LoadTexture("Skok", JUMP_FRAME_FILEPATH);
 		this->_data->assets.LoadTexture("Prawo", RIGHT_FRAME_FILEPATH);
 		this->_data->assets.LoadTexture("Lewo", LEFT_FRAME_FILEPATH);
-		
+
 		this->_data->assets.LoadTexture("Options background", OPTIONS_BACKGROUND_FILEPATH);
+		// _backgroundOptions.setTexture(this->_data->assets.GetTexture("Game Background"));
 
 		this->_data->assets.LoadTexture("Options F1 background", OPTIONS_F1_BACKGROUND_FILEPATH);
-		
+
+		this->_data->assets.LoadFont("IceTower Font", ICETWOER_FONT);
+
 
 		ground = new Ground(_data);
 		spawner = new Spawner(_data);
@@ -48,10 +53,15 @@ namespace Sonar
 		mate = new Mate(_data);
 
 		// optionsstate = new OptionsState(_data);
-		
+
 		optionsF1 = new OptionsF1(_data);
 
 		flash = new Flash(_data);
+
+		score = new Score(_data);
+
+		_score = 0;
+		score->UpdateScore(_score);
 
 		_gameState = GameStates::eReady;
 	}
@@ -94,7 +104,7 @@ namespace Sonar
 					if (event.key.code == sf::Keyboard::Key::F2)
 					{
 						_gameState = GameStates::ePlaying;
-						
+
 					}
 
 				}
@@ -119,7 +129,7 @@ namespace Sonar
 		if (GameStates::ePlaying == _gameState)
 		{
 			ground->MoveGround(dt);
-			
+
 			if (LevelClock.getElapsedTime().asSeconds() > 20.0f)
 			{
 				float B = GROUND_SPAWN_FREQUENCY - 1.0f;
@@ -133,6 +143,7 @@ namespace Sonar
 					ground->SpawnGround2();
 					ground->SpawnGround3();
 
+					ground->SpawnScoringGround();
 					clock.restart();
 				}
 			}
@@ -147,6 +158,7 @@ namespace Sonar
 					ground->SpawnGround2();
 					ground->SpawnGround3();
 
+					ground->SpawnScoringGround();
 					clock.restart();
 				}
 			}
@@ -160,6 +172,25 @@ namespace Sonar
 				if (collisions.CheckSpriteCollision(mate->GetSprite(), endingSprites.at(i)))
 				{
 					_gameState = GameStates::eGameOver;
+				}
+			}
+
+			if (GameStates::ePlaying == _gameState)
+			{
+
+				std::vector<sf::Sprite> &ScoringSprite = ground->GetScoringSprite();
+
+				for (int i = 0; i < ScoringSprite.size(); i++)
+				{
+
+					if (collisions.CheckSpriteCollision(mate->GetSprite(), ScoringSprite.at(i)))
+					{
+						_score++;
+
+						score->UpdateScore(_score);
+
+						ScoringSprite.erase(ScoringSprite.begin() + i);
+					}
 				}
 			}
 		}
@@ -182,15 +213,17 @@ namespace Sonar
 		edge->DrawEdge();
 
 		mate->Draw();
-		
+
 		if (_gameState == GameStates::ePause)
 		{
-			//this->_data->window.draw(this->_backgroundOptions);
+			// this->_data->window.draw(this->_backgroundOptions);
 			//optionsstate->Draw(dt);
 			optionsF1->Draw(dt);
 		}
 
 		flash->Draw();
+
+		score->Draw();
 
 		this->_data->window.display();
 	}

@@ -11,6 +11,7 @@
 #include "OptionsState.h"
 #include "Flash.h"
 #include "OptionsF1.h"
+#include "Score.h"
 
 namespace Sonar
 {
@@ -32,6 +33,7 @@ namespace Sonar
 		
 		sf::Sprite _background;
 		
+		// sf::Sprite _backgroundOptions;
 
 		Ground *ground;
 
@@ -52,9 +54,13 @@ namespace Sonar
 
 		OptionsF1 *optionsF1;
 
+		Score *score;
+
 		sf::Clock clock;
 		sf::Clock LevelClock;
 		
 		int _gameState;
+
+		int _score;
 	};
 }

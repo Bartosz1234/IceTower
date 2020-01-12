@@ -17,13 +17,19 @@ namespace Sonar
 		void SpawnGround2();
 		void SpawnGround3();
 		void SpawnInvisibleGround();
+
+		void SpawnScoringGround();
+
 		void MoveGround(float dt);
 		void DrawGround();
 		void RandomiseGroundOffset();
 
+		std::vector<sf::Sprite> &GetScoringSprite();
+
 	private:
 		GameDataRef _data;
 		std::vector<sf::Sprite> GroundSprites;
+		std::vector<sf::Sprite> ScoringGround;
 
 		int _EdgeWidth;
 		int _groundSpawnXOffset;

@@ -58,6 +58,18 @@ namespace Sonar
 		GroundSprites.push_back(sprite);
 
 	}
+	
+	void Ground::SpawnScoringGround()
+	{
+		sf::Sprite sprite(_data->assets.GetTexture("Koniec"));
+
+		sprite.setPosition(_data->window.getSize().x - 1250 , -100);
+
+		// 160, _data->window.getSize().y
+
+		ScoringGround.push_back(sprite);
+
+	}
 
 
 	void Ground::MoveGround(float dt)
@@ -87,6 +99,32 @@ namespace Sonar
 			}
 		}
 
+
+		for (unsigned short int i = 0; i < ScoringGround.size(); i++)
+		{
+			if (ScoringGround.at(i).getPosition().y > 800 + ScoringGround.at(i).getGlobalBounds().height)
+			{
+				ScoringGround.erase(ScoringGround.begin() + i);
+
+			}
+
+			else if (_LevelClock.getElapsedTime().asSeconds() > 20.0f)
+			{
+				float movement = (GROUND_MOVEMENT_SPEED + 200.0f) * dt;
+
+
+				ScoringGround.at(i).move(0.0f, movement);
+			}
+			else
+			{
+				// sf::Vector2f position = GroundSprites.at(i).getPosition();
+
+				float movement = GROUND_MOVEMENT_SPEED * dt;
+
+				ScoringGround.at(i).move(0.0f, movement);
+			}
+		}
+
 	}
 
 
@@ -96,6 +134,11 @@ namespace Sonar
 		{
 			_data->window.draw(GroundSprites.at(i));
 		}
+	}
+
+	std::vector<sf::Sprite> &Ground::GetScoringSprite()
+	{
+		return ScoringGround;
 	}
 
 }

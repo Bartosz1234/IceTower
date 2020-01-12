@@ -139,6 +139,7 @@
     <ClCompile Include="Mate.cpp" />
     <ClCompile Include="OptionsF1.cpp" />
     <ClCompile Include="OptionsState.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Mate.h" />
     <ClInclude Include="OptionsF1.h" />
     <ClInclude Include="OptionsState.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="SplashState.h" />
     <ClInclude Include="State.h" />

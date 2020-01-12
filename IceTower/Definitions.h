@@ -45,3 +45,6 @@ enum GameStates
 
 #define FLASH_SPEED 1300.0f
 #define OPTIONS_F1_BACKGROUND_FILEPATH "OptionsF1.png"
+
+#define SCORING_GROUND_FILEPATH "InvisibleScoringGround.png"
+#define ICETWOER_FONT "arial.ttf"
