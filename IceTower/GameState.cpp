@@ -9,7 +9,7 @@ namespace Sonar
 {
 	GameState::GameState(GameDataRef data) : _data(data)
 	{
-		
+
 	}
 
 	void GameState::Init()
@@ -34,6 +34,11 @@ namespace Sonar
 		this->_data->assets.LoadTexture("Skok", JUMP_FRAME_FILEPATH);
 		this->_data->assets.LoadTexture("Prawo", RIGHT_FRAME_FILEPATH);
 		this->_data->assets.LoadTexture("Lewo", LEFT_FRAME_FILEPATH);
+		
+		this->_data->assets.LoadTexture("Options background", OPTIONS_BACKGROUND_FILEPATH);
+
+		this->_data->assets.LoadTexture("Options F1 background", OPTIONS_F1_BACKGROUND_FILEPATH);
+		
 
 		ground = new Ground(_data);
 		spawner = new Spawner(_data);
@@ -42,6 +47,11 @@ namespace Sonar
 		edge = new Edge1(_data);
 		mate = new Mate(_data);
 
+		// optionsstate = new OptionsState(_data);
+		
+		optionsF1 = new OptionsF1(_data);
+
+		flash = new Flash(_data);
 
 		_gameState = GameStates::eReady;
 	}
@@ -76,6 +86,16 @@ namespace Sonar
 						mate->move(-30, 0);
 						mate->Left();
 					}
+					if (event.key.code == sf::Keyboard::Key::F1)
+					{
+						_gameState = GameStates::ePause;
+						// this->_data->machine.AddState(StateRef(new OptionsState(_data)), true);
+					}
+					if (event.key.code == sf::Keyboard::Key::F2)
+					{
+						_gameState = GameStates::ePlaying;
+						
+					}
 
 				}
 
@@ -86,7 +106,7 @@ namespace Sonar
 
 	void GameState::Update(float dt)
 	{
-		
+
 
 		spawner->Spawner1();
 		spawner->Spawner2();
@@ -99,19 +119,37 @@ namespace Sonar
 		if (GameStates::ePlaying == _gameState)
 		{
 			ground->MoveGround(dt);
-
-			if (clock.getElapsedTime().asSeconds() > GROUND_SPAWN_FREQUENCY)
+			
+			if (LevelClock.getElapsedTime().asSeconds() > 20.0f)
 			{
-				ground->RandomiseGroundOffset();
+				float B = GROUND_SPAWN_FREQUENCY - 1.0f;
 
-				ground->SpawnInvisibleGround();
-				ground->SpawnGround1();
-				ground->SpawnGround2();
-				ground->SpawnGround3();
+				if (clock.getElapsedTime().asSeconds() > B)
+				{
+					ground->RandomiseGroundOffset();
 
-				clock.restart();
+					ground->SpawnInvisibleGround();
+					ground->SpawnGround1();
+					ground->SpawnGround2();
+					ground->SpawnGround3();
+
+					clock.restart();
+				}
 			}
+			else
+			{
+				if (clock.getElapsedTime().asSeconds() > GROUND_SPAWN_FREQUENCY)
+				{
+					ground->RandomiseGroundOffset();
 
+					ground->SpawnInvisibleGround();
+					ground->SpawnGround1();
+					ground->SpawnGround2();
+					ground->SpawnGround3();
+
+					clock.restart();
+				}
+			}
 
 			mate->Update(dt);
 
@@ -124,6 +162,10 @@ namespace Sonar
 					_gameState = GameStates::eGameOver;
 				}
 			}
+		}
+		if (GameStates::eGameOver == _gameState)
+		{
+			flash->Show(dt);
 		}
 	}
 
@@ -140,9 +182,18 @@ namespace Sonar
 		edge->DrawEdge();
 
 		mate->Draw();
+		
+		if (_gameState == GameStates::ePause)
+		{
+			//this->_data->window.draw(this->_backgroundOptions);
+			//optionsstate->Draw(dt);
+			optionsF1->Draw(dt);
+		}
+
+		flash->Draw();
 
 		this->_data->window.display();
 	}
-	
-	
+
+
 }

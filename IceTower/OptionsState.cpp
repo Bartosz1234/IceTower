@@ -35,6 +35,8 @@ namespace Sonar {
 			{
 				this->_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
 			}
+			
+
 		}
 	}
 
@@ -45,7 +47,7 @@ namespace Sonar {
 
 	void OptionsState::Draw(float dt)
 	{
-		this->_data->window.clear(sf::Color::Blue);
+		// this->_data->window.clear(sf::Color::Blue);
 
 		this->_data->window.draw(this->_background);
 

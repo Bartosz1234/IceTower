@@ -15,6 +15,7 @@
 #define ILOSC_POZYCJI_MENU 4
 #define GROUND_MOVEMENT_SPEED 100.0f
 #define GROUND_SPAWN_FREQUENCY 2.0f
+
 #define OPTIONS_BACKGROUND_FILEPATH "Options background.png"
 #define GAME_EDGE_FILEPATH "Edge.png"
 #define END_FILEPATH "Koniec.png"
@@ -41,3 +42,6 @@ enum GameStates
 	ePause,
 	eGameOver
 };
+
+#define FLASH_SPEED 1300.0f
+#define OPTIONS_F1_BACKGROUND_FILEPATH "OptionsF1.png"

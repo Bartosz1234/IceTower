@@ -129,6 +129,7 @@
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Edge1.cpp" />
     <ClCompile Include="Ending.cpp" />
+    <ClCompile Include="Flash.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Ground.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Mate.cpp" />
+    <ClCompile Include="OptionsF1.cpp" />
     <ClCompile Include="OptionsState.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="SplashState.cpp" />
@@ -147,12 +149,14 @@
     <ClInclude Include="DEFINITIONS.h" />
     <ClInclude Include="Edge1.h" />
     <ClInclude Include="Ending.h" />
+    <ClInclude Include="Flash.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Mate.h" />
+    <ClInclude Include="OptionsF1.h" />
     <ClInclude Include="OptionsState.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="SplashState.h" />

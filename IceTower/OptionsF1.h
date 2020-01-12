@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>	
-#include "MainMenuState.h"
 #include "Game.h"
 #include "DEFINITIONS.h"
 #include "State.h"
@@ -10,10 +9,10 @@
 
 namespace Sonar {
 
-	class OptionsState : public State
+	class OptionsF1 : public State
 	{
 	public:
-		OptionsState(GameDataRef data);
+		OptionsF1(GameDataRef data);
 		void Init();
 		void HandleInput();
 		void Update(float dt);
@@ -24,6 +23,6 @@ namespace Sonar {
 
 		sf::Sprite _background;
 
-		
+
 	};
 }
