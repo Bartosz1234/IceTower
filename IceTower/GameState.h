@@ -6,7 +6,8 @@
 #include "Edge1.h"
 #include "DEFINITIONS.h"
 #include "Mate.h"
-
+#include "Ending.h"
+#include "Collisions.h"
 
 namespace Sonar
 {
@@ -32,10 +33,17 @@ namespace Sonar
 
 		Spawner *spawner;
 
+		
 		Edge1 *edge;
 
 		Mate *mate;
 
+		Ending *ending;
+
+		Collisions collisions;
+
 		sf::Clock clock;
+		int _gameState;
+		
 	};
 }

@@ -77,6 +77,9 @@ namespace Sonar
 		_mateSprite.setTexture(_data->assets.GetTexture("Skok"));
 	}
 
-
+	const sf::Sprite &Mate::GetSprite() const
+	{
+		return _mateSprite;
+	}
 
 }

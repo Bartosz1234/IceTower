@@ -15,13 +15,13 @@ namespace Sonar
 		_groundSpawnXOffset = rand() % (_EdgeWidth + 1);
 	}
 
-	
-	
+
+
 	void Ground::SpawnGround1()
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_1"));
 
-		sprite.setPosition(_data->window.getSize().x -450 - _groundSpawnXOffset, -100);
+		sprite.setPosition(_data->window.getSize().x - 450 - _groundSpawnXOffset, -100);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -31,7 +31,7 @@ namespace Sonar
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_2"));
 
-		sprite.setPosition(_data->window.getSize().x -350 - _groundSpawnXOffset, -100);
+		sprite.setPosition(_data->window.getSize().x - 350 - _groundSpawnXOffset, -100);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -41,7 +41,7 @@ namespace Sonar
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("level_one_3"));
 
-		sprite.setPosition(_data->window.getSize().x  -251 - _groundSpawnXOffset, -100);
+		sprite.setPosition(_data->window.getSize().x - 251 - _groundSpawnXOffset, -100);
 
 		GroundSprites.push_back(sprite);
 	}
@@ -69,16 +69,23 @@ namespace Sonar
 				GroundSprites.erase(GroundSprites.begin() + i);
 
 			}
+
+			else if (_clock.getElapsedTime().asSeconds() > 10.0f)
+			{
+				float movement = (GROUND_MOVEMENT_SPEED + 200.0f) * dt;
+
+				GroundSprites.at(i).move(0.0f, movement);
+			}
 			else
 			{
-			// sf::Vector2f position = GroundSprites.at(i).getPosition();
+				// sf::Vector2f position = GroundSprites.at(i).getPosition();
 
-			float movement = GROUND_MOVEMENT_SPEED * dt;
+				float movement = GROUND_MOVEMENT_SPEED * dt;
 
-			GroundSprites.at(i).move(0.0f, movement);
+				GroundSprites.at(i).move(0.0f, movement);
 			}
 		}
-		
+
 	}
 
 

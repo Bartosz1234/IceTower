@@ -7,24 +7,22 @@
 
 namespace Sonar
 {
-	class Spawner
+	class Ending
 	{
 	public:
-		Spawner(GameDataRef data);
-
-		void Spawner1();
-		void Spawner2();
-		void Spawner3();
+		Ending(GameDataRef data);
 
 		
-		
-		void DrawSpawner();
+		void End();
 
-		
+		void DrawEnding();
+	
+		const std::vector<sf::Sprite> &GetSprites() const;
+
 	private:
 		GameDataRef _data;
-		std::vector<sf::Sprite> SpawnerSprites;
 		
+		std::vector<sf::Sprite> endingSprites;
 	};
 
 }

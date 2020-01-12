@@ -27,6 +27,7 @@ namespace Sonar
 
 		int _EdgeWidth;
 		int _groundSpawnXOffset;
+		sf::Clock _clock;
 	};
 
 

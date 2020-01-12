@@ -36,6 +36,8 @@ namespace Sonar
 
 		SpawnerSprites.push_back(sprite);
 	}
+	
+	
 
 
 	
@@ -45,7 +47,10 @@ namespace Sonar
 		for (unsigned short int i = 0; i < SpawnerSprites.size(); i++)
 		{
 			_data->window.draw(SpawnerSprites.at(i));
+			
 		}
+		
+		
 	}
 
 

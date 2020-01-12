@@ -13,10 +13,11 @@
 #define GROUND_2_FILEPATH "level_one_2.png"
 #define GROUND_3_FILEPATH "level_one_3.png"
 #define ILOSC_POZYCJI_MENU 4
-#define GROUND_MOVEMENT_SPEED 200.0f
-#define GROUND_SPAWN_FREQUENCY 1.5f
+#define GROUND_MOVEMENT_SPEED 100.0f
+#define GROUND_SPAWN_FREQUENCY 2.0f
 #define OPTIONS_BACKGROUND_FILEPATH "Options background.png"
 #define GAME_EDGE_FILEPATH "Edge.png"
+#define END_FILEPATH "Koniec.png"
 
 #define MATE_FRAME_FILEPATH "Stoi.png"
 #define JUMP_FRAME_FILEPATH "Skok.png"
@@ -29,6 +30,14 @@
 #define MATE_STATE_JUMPING 3
 
 #define GRAVITY 350.0f
-#define JUMPING_SPEED 450.0f
+#define JUMPING_SPEED 700.0f
 
 #define JUMPING_DURATION 0.4f
+
+enum GameStates
+{
+	eReady,
+	ePlaying,
+	ePause,
+	eGameOver
+};

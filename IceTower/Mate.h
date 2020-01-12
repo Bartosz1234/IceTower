@@ -28,6 +28,7 @@ namespace Sonar
 		void Left();
 		void Jump();
 
+		const sf::Sprite &GetSprite() const;
 	private:
 		GameDataRef _data;
 
