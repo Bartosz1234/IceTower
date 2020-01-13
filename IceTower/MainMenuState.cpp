@@ -59,14 +59,19 @@ namespace Sonar
 			}
 			
 			if (event.type == sf::Event::KeyPressed) {
-				if (event.key.code == sf::Keyboard::Key::W)
+				if (event.key.code == sf::Keyboard::Key::Up)
 					moveUp();
-				if (event.key.code == sf::Keyboard::Key::S)
+				if (event.key.code == sf::Keyboard::Key::Down)
 					moveDown();
 				if (event.key.code == sf::Keyboard::Key::Enter
 					&& getSelectedItem() == 0)
 				{
 					this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+				}
+				if (event.key.code == sf::Keyboard::Key::Enter
+					&& getSelectedItem() == 1)
+				{
+					this->_data->machine.AddState(StateRef(new Wyniki(_data)), true);
 				}
 				if (event.key.code == sf::Keyboard::Key::Enter
 					&& getSelectedItem() == 2)

@@ -5,6 +5,7 @@
 #include "GameOverState.h"
 #include "GameState.h"
 #include "MainMenuState.h"
+#include <fstream>
 
 #include <iostream>
 
@@ -17,6 +18,38 @@ namespace Sonar
 
 	void GameOverState::Init()
 	{
+		std::ifstream readFile;
+		readFile.open("Wyniczki.txt");
+
+
+		if (readFile.is_open())
+		{
+			while (!readFile.eof())
+			{
+				readFile >> _bestScore;
+			}
+		}
+
+		std::cout << _bestScore << std::endl;
+
+		readFile.close();
+
+		std::ofstream writeFile("Wyniczki.txt");
+
+		if (writeFile.is_open())
+		{
+			if (_score > _bestScore)
+			{
+				_bestScore = _score;
+			}
+
+			writeFile << _bestScore << std::endl;
+			writeFile << _score << std::endl;
+		}
+
+		writeFile.close();
+
+
 		//this->_data->assets.LoadTexture("game_background", GAME_BACKGROUND_FILEPATH);
 		
 		this->_data->assets.LoadTexture("GameOver", GAME_OVER_WINDOW);
@@ -44,7 +77,7 @@ namespace Sonar
 		_bestScoreText.setString(std::to_string(_bestScore));
 		_bestScoreText.setCharacterSize(60);
 		_bestScoreText.setFillColor(sf::Color::White);
-	
+		
 			
 	
 	}
@@ -95,6 +128,7 @@ namespace Sonar
 		_data->window.draw(_retryButton);
 		_data->window.draw(_scoreText);
 
+		
 		this->_data->window.display();
 	}
 }

@@ -4,7 +4,7 @@
 #include "State.h"
 #include "Game.h"
 #include "DEFINITIONS.h"
-
+#include "Wyniki.h"
 
 
 namespace Sonar

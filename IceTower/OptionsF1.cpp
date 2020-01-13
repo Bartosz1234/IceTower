@@ -33,6 +33,10 @@ namespace Sonar {
 			{
 				// this->_data->machine.AddState(StateRef(new GameState(_data)), true);
 			}
+			if (event.key.code == sf::Keyboard::Key::Enter)
+			{
+				 this->_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
+			}
 
 
 		}
@@ -46,5 +50,7 @@ namespace Sonar {
 	void OptionsF1::Draw(float dt)
 	{
 		_data->window.draw(this->_background);
+
+		this->_data->window.display();
 	}
 }

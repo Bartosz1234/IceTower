@@ -38,12 +38,34 @@ namespace Sonar
 		this->_data->assets.LoadTexture("Prawo", RIGHT_FRAME_FILEPATH);
 		this->_data->assets.LoadTexture("Lewo", LEFT_FRAME_FILEPATH);
 
-		this->_data->assets.LoadTexture("Options background", OPTIONS_BACKGROUND_FILEPATH);
+		// this->_data->assets.LoadTexture("Options background", OPTIONS_BACKGROUND_FILEPATH);
 		// _backgroundOptions.setTexture(this->_data->assets.GetTexture("Game Background"));
 
-		this->_data->assets.LoadTexture("Options F1 background", OPTIONS_F1_BACKGROUND_FILEPATH);
+		// this->_data->assets.LoadTexture("Options F1 background", OPTIONS_F1_BACKGROUND_FILEPATH);
 
 		this->_data->assets.LoadFont("IceTower Font", ICETWOER_FONT);
+
+		this->_data->assets.LoadTexture("Quitting", ESC_WINDOW_FILEPATH);
+		_EscWindow.setTexture(this->_data->assets.GetTexture("Quitting"));
+
+		this->_data->assets.LoadTexture("YesButton", YES_BUTTON_FILEPATH);
+		_YesButton.setTexture(this->_data->assets.GetTexture("YesButton"));
+
+		this->_data->assets.LoadTexture("NoButton", NO_BUTTON_FILEPATH);
+		_NoButton.setTexture(this->_data->assets.GetTexture("NoButton"));
+
+		_EscWindow.setPosition(sf::Vector2f((_data->window.getSize().x / 2) - (_EscWindow.getGlobalBounds().width / 2), (_data->window.getSize().y / 2) - (_EscWindow.getGlobalBounds().height / 2)));
+
+		_YesButton.setPosition(sf::Vector2f((_data->window.getSize().x / 2) - (_YesButton.getGlobalBounds().width / 2),  (_data->window.getSize().y / 2) + 35));
+
+		_NoButton.setPosition(sf::Vector2f((_data->window.getSize().x / 2) - (_NoButton.getGlobalBounds().width / 2) + 80, (_data->window.getSize().y / 2) + 35));
+
+
+		this->_data->assets.LoadTexture("Options F1 Window", OPTIONS_F1_BACKGROUND_FILEPATH);
+		_OptionsWindow.setTexture(this->_data->assets.GetTexture("Options F1 Window"));
+
+		_OptionsWindow.setPosition(sf::Vector2f(0, 0));
+
 
 
 		ground = new Ground(_data);
@@ -55,7 +77,7 @@ namespace Sonar
 
 		// optionsstate = new OptionsState(_data);
 
-		optionsF1 = new OptionsF1(_data);
+		// optionsF1 = new OptionsF1(_data);
 
 		flash = new Flash(_data);
 
@@ -100,16 +122,42 @@ namespace Sonar
 					if (event.key.code == sf::Keyboard::Key::F1)
 					{
 						_gameState = GameStates::ePause;
-						this->_data->machine.AddState(StateRef(new OptionsState(_data)), true);
+						
 					}
+					
 					if (event.key.code == sf::Keyboard::Key::F2)
 					{
 						_gameState = GameStates::ePlaying;
 
 					}
+					if (event.key.code == sf::Keyboard::Key::Escape)
+					{
+						_gameState = GameStates::ePauseEsc;
+
+					}
 
 				}
 
+			}
+			if (this->_data->input.IsSpriteClicked(this->_YesButton, sf::Mouse::Left, this->_data->window))
+			{
+				this->_data->window.close();
+			}
+			
+			if (this->_data->input.IsSpriteClicked(this->_NoButton, sf::Mouse::Left, this->_data->window))
+			{
+				
+				_gameState = GameStates::eReadyEsc;
+				
+				if (_gameState == GameStates::eReadyEsc)
+				{
+					EscClock.restart();
+
+					if (EscClock.getElapsedTime().asSeconds() > 1.0f)
+					{
+						_gameState = GameStates::ePlaying;
+					}
+				}
 			}
 		}
 	}
@@ -206,6 +254,9 @@ namespace Sonar
 				_data->machine.AddState(StateRef(new GameOverState( _data, _score) ), true);
 			}
 		}
+
+		
+
 	}
 
 	void GameState::Draw(float dt)
@@ -222,12 +273,20 @@ namespace Sonar
 
 		mate->Draw();
 
-		//if (_gameState == GameStates::ePause)
-		//{
-		//	// this->_data->window.draw(this->_backgroundOptions);
-		//	//optionsstate->Draw(dt);
-		//	optionsF1->Draw(dt);
-		//}
+		if (GameStates::ePause == _gameState)
+		{
+			_data->window.draw(_OptionsWindow);
+			
+		}
+
+		if (GameStates::ePauseEsc == _gameState)
+		{
+			_data->window.draw(_EscWindow);
+			_data->window.draw(_YesButton);
+			_data->window.draw(_NoButton);
+		}
+
+
 
 		flash->Draw();
 

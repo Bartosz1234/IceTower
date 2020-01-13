@@ -40,6 +40,8 @@ enum GameStates
 	eReady,
 	ePlaying,
 	ePause,
+	ePauseEsc,
+	eReadyEsc,
 	eGameOver
 };
 
@@ -53,3 +55,9 @@ enum GameStates
 #define GAME_OVER_WINDOW "GameOver.png"
 
 #define TIME_BEFORE_YOU_DIE 1.5f
+
+#define WYNIKI_BACKGROUND_FIEPATH "Wynik.png"
+
+#define ESC_WINDOW_FILEPATH "Quitting.png"
+#define YES_BUTTON_FILEPATH "Yes.png"
+#define NO_BUTTON_FILEPATH "No.png"

@@ -8,9 +8,9 @@
 #include "Mate.h"
 #include "Ending.h"
 #include "Collisions.h"
-#include "OptionsState.h"
+
 #include "Flash.h"
-#include "OptionsF1.h"
+
 #include "Score.h"
 
 namespace Sonar
@@ -33,6 +33,12 @@ namespace Sonar
 		
 		sf::Sprite _background;
 		
+		sf::Sprite _EscWindow;
+		sf::Sprite _NoButton;
+		sf::Sprite _YesButton;
+
+		sf::Sprite _OptionsWindow;
+
 		// sf::Sprite _backgroundOptions;
 
 		Ground *ground;
@@ -50,14 +56,16 @@ namespace Sonar
 
 		Flash *flash;
 
-		OptionsState *optionsstate;
+		
 
-		OptionsF1 *optionsF1;
+		
 
 		Score *score;
 
 		sf::Clock clock;
 		sf::Clock LevelClock;
+
+		sf::Clock EscClock;
 		
 		int _gameState;
 
