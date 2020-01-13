@@ -255,7 +255,12 @@ namespace Sonar
 			}
 		}
 
-		
+		if (SpawnerClock.getElapsedTime().asSeconds() > 9)
+		{
+			spawner->Update(dt);
+			spawner->Update(dt);
+			spawner->Update(dt);
+		}
 
 	}
 

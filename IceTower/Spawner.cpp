@@ -39,7 +39,19 @@ namespace Sonar
 	
 	
 
+	void Spawner::Update(float dt)
+	{
+		for (unsigned short int i = 0; i < SpawnerSprites.size(); i++)
+		{
+			
+			if (SpawnerSprites.at(i).getPosition().y > 400)
+			{
+				SpawnerSprites.erase(SpawnerSprites.begin() + i);
 
+			}
+		}
+
+	}
 	
 
 	void Spawner::DrawSpawner()

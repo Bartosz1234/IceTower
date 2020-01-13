@@ -16,7 +16,7 @@ namespace Sonar
 		void Spawner2();
 		void Spawner3();
 
-		
+		void Update(float dt);
 		
 		void DrawSpawner();
 
@@ -24,6 +24,7 @@ namespace Sonar
 	private:
 		GameDataRef _data;
 		std::vector<sf::Sprite> SpawnerSprites;
+
 		
 	};
 

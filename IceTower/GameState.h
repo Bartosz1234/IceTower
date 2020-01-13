@@ -66,6 +66,8 @@ namespace Sonar
 		sf::Clock LevelClock;
 
 		sf::Clock EscClock;
+
+		sf::Clock SpawnerClock;
 		
 		int _gameState;
 
