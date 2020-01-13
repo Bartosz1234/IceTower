@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace Sonar
+namespace Bartux
 {
 	Spawner::Spawner(GameDataRef data) : _data(data)
 	{

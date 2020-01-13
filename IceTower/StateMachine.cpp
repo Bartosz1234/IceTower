@@ -1,6 +1,6 @@
 #include "StateMachine.h"
 
-namespace Sonar
+namespace Bartux
 {
 
 	void StateMachine::AddState(StateRef newState, bool isReplacing)

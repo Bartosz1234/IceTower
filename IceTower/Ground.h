@@ -5,7 +5,7 @@
 #include <vector>
 #include "Definitions.h"
 
-namespace Sonar
+namespace Bartux
 {
 	class Ground
 	{
@@ -24,7 +24,9 @@ namespace Sonar
 		void DrawGround();
 		void RandomiseGroundOffset();
 
+		const std::vector<sf::Sprite> &GetSprites() const;
 		std::vector<sf::Sprite> &GetScoringSprite();
+
 
 	private:
 		GameDataRef _data;

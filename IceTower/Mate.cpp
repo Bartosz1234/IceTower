@@ -1,7 +1,7 @@
 #include "Mate.h"
 
 
-namespace Sonar
+namespace Bartux
 {
 
 	Mate::Mate(GameDataRef data) : _data(data)
@@ -12,7 +12,7 @@ namespace Sonar
 
 		_mateSprite.setTexture(_data->assets.GetTexture("Stoi"));
 
-		_mateSprite.setPosition((_data->window.getSize().x / 9) + 150, 624);
+		_mateSprite.setPosition((_data->window.getSize().x / 9) + 150, 642);
 		_mateState = MATE_STATE_STILL;
 	}
 

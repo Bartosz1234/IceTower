@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-namespace Sonar
+namespace Bartux
 {
 	GameState::GameState(GameDataRef data) : _data(data)
 	{
@@ -255,11 +255,35 @@ namespace Sonar
 			}
 		}
 
-		if (SpawnerClock.getElapsedTime().asSeconds() > 9)
+		if (SpawnerClock.getElapsedTime().asSeconds() > 3)
 		{
 			spawner->Update(dt);
 			spawner->Update(dt);
 			spawner->Update(dt);
+		}
+		
+		std::vector<sf::Sprite> GroundSprites = ground->GetSprites();
+
+		for (int i = 0; i < GroundSprites.size(); i++)
+		{
+			if (collisions.CheckSpriteCollision(mate->GetSprite(), 0.750f, GroundSprites.at(i) , 1.1f))
+			{
+				_gameState = GameStates::eGameOver;
+
+				// clock.restart();
+			}
+		}
+		
+		std::vector<sf::Sprite> EdgeSprites = edge->GetSprites();
+
+		for (int i = 0; i < EdgeSprites.size(); i++)
+		{
+			if (collisions.CheckSpriteCollision(mate->GetSprite(),  EdgeSprites.at(i) ))
+			{
+				_gameState = GameStates::eGameOver;
+
+				// clock.restart();
+			}
 		}
 
 	}

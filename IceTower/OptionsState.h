@@ -8,7 +8,7 @@
 
 
 
-namespace Sonar {
+namespace Bartux {
 
 	class OptionsState : public State
 	{

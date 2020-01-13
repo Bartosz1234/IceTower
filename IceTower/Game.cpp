@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-namespace Sonar
+namespace Bartux
 {
 	Game::Game(int width, int height, std::string title)
 	{

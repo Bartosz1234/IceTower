@@ -13,7 +13,7 @@
 
 #include "Score.h"
 
-namespace Sonar
+namespace Bartux
 {
 	class GameState : public State
 	{

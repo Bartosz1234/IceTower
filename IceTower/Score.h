@@ -5,7 +5,10 @@
 #include "DEFINITIONS.h"
 #include "Game.h"
 
-namespace Sonar
+
+
+
+namespace Bartux
 {
 	class Score
 	{
@@ -18,6 +21,8 @@ namespace Sonar
 
 	private:
 		GameDataRef _data;
+
+		
 
 		sf::Text _scoreText;
 

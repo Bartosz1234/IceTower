@@ -4,13 +4,11 @@
 #include "State.h"
 #include "Game.h"
 
-namespace Sonar
+namespace Bartux
 {
 
 class Wyniki : public State
 {
-public:
-	Wyniki();
 
 public:
 	Wyniki(GameDataRef data);

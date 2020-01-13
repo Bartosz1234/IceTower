@@ -7,7 +7,7 @@
 #include "AssetManager.h"
 #include "InputManager.h"
 
-namespace Sonar
+namespace Bartux
 {
 	struct GameData
 	{

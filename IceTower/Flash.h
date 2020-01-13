@@ -4,7 +4,7 @@
 #include "Game.h"
 #include "DEFINITIONS.h"
 
-namespace Sonar
+namespace Bartux
 {
 	class Flash
 	{

@@ -5,7 +5,7 @@
 #include <vector>
 #include "Definitions.h"
 
-namespace Sonar
+namespace Bartux
 {
 	class Spawner
 	{

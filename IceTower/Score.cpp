@@ -2,7 +2,9 @@
 
 #include <string>
 
-namespace Sonar
+
+
+namespace Bartux
 {
 	Score::Score(GameDataRef data) : _data(data)
 	{

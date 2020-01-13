@@ -4,7 +4,7 @@
 #include "DEFINITIONS.h"
 #include <iostream>
 
-namespace Sonar
+namespace Bartux
 {
 
 	Wyniki::Wyniki(GameDataRef data) : _data(data)
@@ -28,7 +28,7 @@ namespace Sonar
 			}
 		}
 
-		std::cout << _bestScore << std::endl;
+		//std::cout << _bestScore << std::endl;
 
 		readFile.close();
 
@@ -45,6 +45,19 @@ namespace Sonar
 		}
 
 		writeFile.close();
+
+		//std::ofstream writeFilewynik("Wyniczkowanie.txt", std::ios::app);
+
+		//if (writeFilewynik.is_open())
+		//{
+		//	
+		//		
+		//
+
+		//	writeFile << _score;
+		//}
+
+		//writeFilewynik.close();
 
 		this->_data->assets.LoadFont("IceTower Font", ICETWOER_FONT);
 

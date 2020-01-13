@@ -6,7 +6,7 @@
 #include <vector>
 
 
-namespace Sonar
+namespace Bartux
 {
 	Ending::Ending(GameDataRef data) : _data(data)
 	{

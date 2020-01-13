@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-namespace Sonar {
+namespace Bartux {
 
 
 	OptionsF1::OptionsF1(GameDataRef data) : _data(data)

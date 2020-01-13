@@ -2,7 +2,7 @@
 #include "AssetManager.h"
 
 
-namespace Sonar
+namespace Bartux
 {
 	void AssetManager::LoadTexture(std::string name, std::string fileName)
 	{

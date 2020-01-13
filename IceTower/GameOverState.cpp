@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-namespace Sonar
+namespace Bartux
 {
 	GameOverState::GameOverState(GameDataRef data, int score) : _data(data) , _score(score)
 	{

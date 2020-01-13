@@ -4,7 +4,7 @@
 #include "State.h"
 #include "Game.h"
 
-namespace Sonar
+namespace Bartux
 {
 	class SplashState : public State
 	{

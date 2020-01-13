@@ -8,7 +8,7 @@
 //#include "GameState.h"
 
 
-namespace Sonar {
+namespace Bartux {
 
 	class OptionsF1 : public State
 	{

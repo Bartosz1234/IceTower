@@ -1,11 +1,11 @@
 #include "Flash.h"
 
-namespace Sonar
+namespace Bartux
 {
 	Flash::Flash(GameDataRef data) : _data(data)
 	{
 		_shape = sf::RectangleShape(sf::Vector2f(_data->window.getSize().x, _data->window.getSize().y));
-		_shape.setFillColor(sf::Color(255, 255, 255, 0));
+		_shape.setFillColor(sf::Color(0, 0, 0, 0));
 
 		_flashOn = true;
 	}
@@ -24,7 +24,7 @@ namespace Sonar
 				_flashOn = false;
 			}
 
-			_shape.setFillColor(sf::Color(255, 255, 255, alpha));
+			_shape.setFillColor(sf::Color(0, 0, 0, alpha));
 		}
 		else
 		{
@@ -35,7 +35,7 @@ namespace Sonar
 				alpha = 0.0f;
 			}
 
-			_shape.setFillColor(sf::Color(255, 255, 255, alpha));
+			_shape.setFillColor(sf::Color(0, 0, 0, alpha));
 		}
 	}
 

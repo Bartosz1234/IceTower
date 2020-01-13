@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace Sonar
+namespace Bartux
 {
 	Ground::Ground(GameDataRef data) : _data(data)
 	{
@@ -140,5 +140,13 @@ namespace Sonar
 	{
 		return ScoringGround;
 	}
+
+	const std::vector<sf::Sprite> &Ground::GetSprites() const
+	{
+		
+		return GroundSprites;
+
+	}
+
 
 }

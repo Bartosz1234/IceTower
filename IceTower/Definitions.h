@@ -54,7 +54,7 @@ enum GameStates
 #define PLAY_AGAIN_BUTTON "Play Again Button.png"
 #define GAME_OVER_WINDOW "GameOver.png"
 
-#define TIME_BEFORE_YOU_DIE 1.5f
+#define TIME_BEFORE_YOU_DIE 1.0f
 
 #define WYNIKI_BACKGROUND_FIEPATH "Wynik.png"
 

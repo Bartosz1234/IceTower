@@ -7,7 +7,7 @@
 #include "Wyniki.h"
 
 
-namespace Sonar
+namespace Bartux
 {
 	class MainMenuState : public State
 	{

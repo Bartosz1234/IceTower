@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Sonar
+namespace Bartux
 {
 	class State
 	{

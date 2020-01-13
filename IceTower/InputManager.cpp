@@ -2,7 +2,7 @@
 
 #include "InputManager.h"
 
-namespace Sonar
+namespace Bartux
 {
 	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow &window)
 	{

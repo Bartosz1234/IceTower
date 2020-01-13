@@ -6,7 +6,7 @@
 #include "State.h"
 
 
-namespace Sonar {
+namespace Bartux {
 
 	typedef std::unique_ptr<State> StateRef;
 

@@ -7,7 +7,7 @@
 #include "MainMenuState.h"
 #include "OptionsState.h"
 
-namespace Sonar {
+namespace Bartux {
 
 
 	OptionsState::OptionsState(GameDataRef data) : _data(data)

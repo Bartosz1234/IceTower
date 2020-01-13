@@ -2,7 +2,7 @@
 #include "DEFINITIONS.h"
 #include <iostream>
 
-namespace Sonar
+namespace Bartux
 {
 	Edge1::Edge1(GameDataRef data) : _data(data)
 	{
@@ -39,5 +39,12 @@ namespace Sonar
 		{
 			_data->window.draw(EdgeSprites.at(i));
 		}
+	}
+
+
+
+	const std::vector<sf::Sprite> &Edge1::GetSprites() const
+	{
+		return EdgeSprites;
 	}
 }

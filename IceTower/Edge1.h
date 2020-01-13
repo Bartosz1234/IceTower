@@ -5,7 +5,7 @@
 #include <vector>
 #include "Definitions.h"
 
-namespace Sonar
+namespace Bartux
 {
 	class Edge1
 	{
@@ -20,6 +20,8 @@ namespace Sonar
 		
 		
 		void DrawEdge();
+
+		const std::vector<sf::Sprite> &GetSprites() const;
 
 	private:
 		GameDataRef _data;
