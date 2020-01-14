@@ -147,7 +147,6 @@
     <ClCompile Include="Wyniki.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllScores.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="DEFINITIONS.h" />

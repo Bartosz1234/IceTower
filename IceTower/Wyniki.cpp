@@ -18,60 +18,31 @@ namespace Bartux
 		std::ifstream readFile;
 		readFile.open("Wyniczki.txt");
 
-
+		//wczytaj plik
 		if (readFile.is_open())
 		{
-			while (!readFile.eof())
-			{
-				readFile >> _bestScore;
-				readFile >> _score;
-			}
+			for (size_t i = 0; i < 5; i++)
+				readFile >> rekordy[i].time >> rekordy[i].score;
+			readFile >> _bestScore;
 		}
-
-		//std::cout << _bestScore << std::endl;
-
 		readFile.close();
-
-		std::ofstream writeFile("Wyniczki.txt");
-
-		if (writeFile.is_open())
-		{
-			if (_score > _bestScore)
-			{
-				_bestScore = _score;
-			}
-
-			writeFile << _bestScore;
-		}
-
-		writeFile.close();
-
-		//std::ofstream writeFilewynik("Wyniczkowanie.txt", std::ios::app);
-
-		//if (writeFilewynik.is_open())
-		//{
-		//	
-		//		
-		//
-
-		//	writeFile << _score;
-		//}
-
-		//writeFilewynik.close();
 
 		this->_data->assets.LoadFont("IceTower Font", ICETWOER_FONT);
 
 		this->_data->assets.LoadTexture("Wyniki_background", WYNIKI_BACKGROUND_FIEPATH);
 		Wynik_background.setTexture(this->_data->assets.GetTexture("Wyniki_background"));
 
-
-
 		_scoreText.setFont(this->_data->assets.GetFont("IceTower Font"));
-		_scoreText.setString(std::to_string(_score));
+		std::string score_txt = "";
+
+		for (size_t i = 0; i < 5; i++)
+			score_txt += std::to_string(rekordy[i].score) + '\n';
+
+		_scoreText.setString(score_txt);
 		_scoreText.setCharacterSize(100);
 		_scoreText.setFillColor(sf::Color::Magenta);
 		_scoreText.setOrigin(sf::Vector2f(_scoreText.getGlobalBounds().width / 2, _scoreText.getGlobalBounds().height / 2));
-		_scoreText.setPosition(sf::Vector2f((_data->window.getSize().x / 10 * 7.25) - 650, (_data->window.getSize().y / 2.15) - 140));
+		_scoreText.setPosition(sf::Vector2f((_data->window.getSize().x / 10 * 7.25) - 650, (_data->window.getSize().y / 2.15) + 120));
 
 		_bestScoreText.setFont(this->_data->assets.GetFont("IceTower Font"));
 		_bestScoreText.setString(std::to_string(_bestScore));
@@ -94,7 +65,7 @@ namespace Bartux
 			}
 			if (event.type == sf::Event::KeyPressed)
 			{
-				
+
 
 				if (event.key.code == sf::Keyboard::Key::Escape)
 				{
@@ -102,19 +73,16 @@ namespace Bartux
 				}
 			}
 
-			
+
 		}
 	}
 
 
-	void Wyniki::Update(float dt)
-	{
-
-	}
+	void Wyniki::Update(float dt) {}
 
 	void Wyniki::Draw(float dt)
 	{
-		this->_data->window.clear(sf::Color::Red);
+		// this->_data->window.clear(sf::Color::Red);
 		this->_data->window.draw(this->Wynik_background);
 
 		_data->window.draw(_scoreText);

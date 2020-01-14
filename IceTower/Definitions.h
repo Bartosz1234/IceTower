@@ -3,7 +3,7 @@
 #define SCREEN_WIDTH 1420
 #define SCREEN_HEIGHT 800
 
-#define SPLASH_STATE_SHOW_TIME 3.0
+#define SPLASH_STATE_SHOW_TIME 2.0
 #define SPLASH_SCENE_BACKGROUND_FILEPATH "Splash State.jpg"
 
 #define MAIN_MENU_BACKGROUND_FILEPATH "Ice Tower grafika.jpg"
@@ -13,7 +13,7 @@
 #define GROUND_2_FILEPATH "level_one_2.png"
 #define GROUND_3_FILEPATH "level_one_3.png"
 #define ILOSC_POZYCJI_MENU 4
-#define GROUND_MOVEMENT_SPEED 100.0f
+#define GROUND_MOVEMENT_SPEED 200.0f
 #define GROUND_SPAWN_FREQUENCY 2.0f
 
 #define OPTIONS_BACKGROUND_FILEPATH "Options background.png"
@@ -30,7 +30,7 @@
 #define MATE_STATE_FALLING 2
 #define MATE_STATE_JUMPING 3
 
-#define GRAVITY 350.0f
+#define GRAVITY 450.0f
 #define JUMPING_SPEED 700.0f
 
 #define JUMPING_DURATION 0.4f

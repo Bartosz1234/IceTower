@@ -43,9 +43,10 @@ namespace Bartux
 				this->_data->machine.GetActiveState()->HandleInput();
 				this->_data->machine.GetActiveState()->Update(dt);
 
-				accumulator -= dt;
+				accumulator = 0;
 			}
 
+			// Usrednianie animacji
 			interpolation = accumulator / dt;
 			this->_data->machine.GetActiveState()->Draw(interpolation);
 		}

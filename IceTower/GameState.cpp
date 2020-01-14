@@ -179,10 +179,10 @@ namespace Bartux
 		{
 			ground->MoveGround(dt);
 
-			if (LevelClock.getElapsedTime().asSeconds() > 20.0f)
+			if (LevelClock.getElapsedTime().asSeconds() > 10.0f)
 			{
-				float B = GROUND_SPAWN_FREQUENCY - 1.0f;
-
+				float B = GROUND_SPAWN_FREQUENCY - 1.4f;
+			;
 				if (clock.getElapsedTime().asSeconds() > B)
 				{
 					ground->RandomiseGroundOffset();

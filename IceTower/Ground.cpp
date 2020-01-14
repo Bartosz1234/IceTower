@@ -82,9 +82,9 @@ namespace Bartux
 
 			}
 
-			else if (_LevelClock.getElapsedTime().asSeconds() > 20.0f)
+			else if (_LevelClock.getElapsedTime().asSeconds() > 10.0f)
 			{
-				float movement = (GROUND_MOVEMENT_SPEED + 200.0f) * dt;
+				float movement = (GROUND_MOVEMENT_SPEED + 300.0f) * dt;
 				
 
 				GroundSprites.at(i).move(0.0f, movement);
@@ -108,9 +108,9 @@ namespace Bartux
 
 			}
 
-			else if (_LevelClock.getElapsedTime().asSeconds() > 20.0f)
+			else if (_LevelClock.getElapsedTime().asSeconds() > 10.0f)
 			{
-				float movement = (GROUND_MOVEMENT_SPEED + 200.0f) * dt;
+				float movement = (GROUND_MOVEMENT_SPEED + 300.0f) * dt;
 
 
 				ScoringGround.at(i).move(0.0f, movement);
